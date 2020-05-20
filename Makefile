@@ -1,16 +1,19 @@
+IMAGE:=ibmosquito/dq:1.0.0
+NAME:=dq
+
 all: build run
 
 build:
-	docker build -t ibmosquito/dq:1.0.0 -f ./Dockerfile .
+	docker build -t $(IMAGE) -f ./Dockerfile .
 
 dev:
-	-docker rm -f dq 2>/dev/null || :
-	docker run -it --name dq -v `pwd`:/outside ibmosquito/dq:1.0.0 /bin/bash
+	-docker rm -f $(NAME) 2>/dev/null || :
+	docker run -it --name $(NAME) -v `pwd`:/outside $(IMAGE) /bin/bash
 
 run:
-	-docker rm -f dq 2>/dev/null || :
-	docker run -it --name dq ibmosquito/dq:1.0.0
+	-docker rm -f $(NAME) 2>/dev/null || :
+	docker run -it --name $(NAME) $(IMAGE)
 
 push:
-	docker push ibmosquito/dq:1.0.0
+	docker push $(IMAGE)
 
