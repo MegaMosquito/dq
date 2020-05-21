@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/l4t-base:r32.2
+FROM nvcr.io/nvidia/l4t-base:r32.4.2
 RUN apt-get update \
   && apt-get install -y --fix-missing --no-install-recommends \
   git \

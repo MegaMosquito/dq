@@ -1,4 +1,4 @@
-IMAGE:=ibmosquito/dq:1.0.0
+IMAGE:=ibmosquito/dq:32.4.2
 NAME:=dq
 
 all: build run
